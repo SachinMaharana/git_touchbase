@@ -1,8 +1,95 @@
-GIT
---------
+1) GIT
+------
 *)Difference between fork and branch and its practical application
 *)Git head rest and rebase
 *)Git conflicts
 *)Git revision history-->How does git store the actual file and the new changes to the file
 *)Git merge
 *)Pull requests
+
+2) Jenkins
+----------
+*) Groovy
+*)Plugins and customization
+
+3) Cloud
+--------
+*)Create and configure a  cloud server (AWS).
+*)Host Multiple servers
+*)Include laod balancinh
+
+4.1)CD/CI Pipeline PHASE 1
+--------------------------
+*)Checkout
+*)Build and update version(both POM and package.JSON)
+*)Upload to NExus or any common repo
+
+4.2)CD/CI Pipeline PHASE 2
+--------------------------
+*)Deploy to a cloud server
+    $)Get the configurations that are necessary for the respective application-->Config tool
+    $)Identify the target servers-->Target managment tool
+*)Implement SMOKE,REGRESSION test
+
+5)Dockerize the application
+---------------------------
+*)Dockerize PHASE 1
+   $)Build the Jenkins base image
+   $)Add the tempalte and the pipeline
+   $)The user invokes the build now
+   $)IDentify the optiosn of giving buidl with parameters
+   $)The pipeline now checkout,builds and uplaods the artifact to a repositary
+   
+   All the above should be a simple docker image where the end user just runs the docker image and 
+   it spins up a container which inturn opens a jenkins URL with build now option for the user
+   
+   USER inputs
+   -----------
+   $)Give the source code of git as parameter for the docker
+   $)Give in the PSWD for jenkisn browser
+   $)Build now
+    
+*)Dockerize PHASE 2
+-------------------
+The container tempalte and pipeline that comes as default within the jenkins container shoudl have the functionality to
+  $)Deploy
+  $)SMOKE and REGRESSION test
+  
+  USER inputs
+  -----------
+  $)deploy servers-->target
+  $)configuratio nfor the applciation -->config
+  $)Tet code URL
+  $)Option to skip testing and build
+  
+6)Ansible inside the docker cotianer
+------------------------------------
+*)Waht options can be given for an applciation using Ansible
+*)Can the targets and cofigurations be done to the server via Ansible
+*)Need to explroe more.......???
+
+7)Skip the cloud server and depoy inside a docker container itself
+------------------------------------------------------------------
+
+8)Nagios
+--------
+  *)Implement an akert mechanism inside the container and the cloud server via NAgios
+  *)Waht else can be done through nagios
+
+9)Kubernetes
+------------
+  *)Spin up multiple container for the app t obe deployed
+  *)Manage the contaienrs via kubernetes
+  *)Explore additionsl options...?????
+
+10)HELM
+-------
+
+11)Final Destination
+--------------------
+Customize the final product which will do every above steps for the user.
+  *)Combine the PHASE1 and PHASE2 containers
+  ????????
+
+
+*)
